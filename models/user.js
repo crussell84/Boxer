@@ -3,7 +3,8 @@ module.exports = function(sequelize, DataTypes) {
       // Giving the Author model a name of type STRING
       userToken: DataTypes.STRING
     }, {
-        paranoid: true
+        paranoid: true,
+        timestamps: true
     });
   
     User.associate = function(models) {

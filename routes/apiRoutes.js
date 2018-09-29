@@ -2,8 +2,10 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+  app.get("/api/products/:user", function(req, res) {
+  
+// need to get userID from front end and include that in the request to filter the table by user
+    db.Product.findAll({where: {userID: req.params.user}}).then(function(dbExamples) {
       res.json(dbExamples);
     });
   });

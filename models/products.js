@@ -30,7 +30,8 @@ module.exports = function (sequelize, DataTypes) {
         },
 
     }, {
-        paranoid: true
+        paranoid: true,
+        timestamps: true
     });
 
     Product.associate  = function(models) {
