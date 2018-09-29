@@ -25,16 +25,15 @@ module.exports = function(app) {
   });
 
 // Update a product - again, expecting a single object with properties from the front end
-  app.put("/api/products", function(req, res){
-    db.Product.update(
-      req.body, {
-        where: {
-          id: req.body.id
-        }
+app.put("/api/products", function(req, res) {
+  db.Product.update(
+    req.body,
+    {
+      where: {
+        id: req.body.id
       }
-    )
-  }).then(data => {
-    res.json(data);
-  })
-
+    }).then(data => {
+    res.json(dbPost);
+  });
+});
 };
