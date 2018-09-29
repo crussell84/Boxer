@@ -33,7 +33,7 @@ app.put("/api/products", function(req, res) {
         id: req.body.id
       }
     }).then(data => {
-    res.json(dbPost);
+    res.json(data);
   });
 });
 };
