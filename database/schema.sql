@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS boxer_db;
+CREATE DATABASE boxer_db;
