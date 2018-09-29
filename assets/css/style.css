@@ -1,0 +1,10 @@
+html,
+body,
+.login-box {
+  height: 100%;
+}
+
+.brand-logo {
+    font-family: 'Bungee', cursive;
+    margin-left: 10px;
+}
