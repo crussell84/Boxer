@@ -36,4 +36,39 @@ app.put("/api/products", function(req, res) {
     res.json(data);
   });
 });
+
+// Create user
+app.post("/api/users/add", function(req, res) {
+  db.User.create(req.body).then(data => {
+    res.json(data);
+  });
+});
+
+//retrieve all users
+app.get("/api/users/", function(req, res) {
+      db.User.findAll({}).then(data => {
+        res.json(data);
+      });
+    });
+
+//delete user
+app.delete("/api/users/:id", function(req, res) {
+  db.User.destroy({ where: { id: req.params.id } }).then(data => {
+    res.json(data);
+  });
+});
+
+//update user
+app.put("/api/users", function(req, res) {
+  db.User.update(
+    req.body,
+    {
+      where: {
+        id: req.body.id
+      }
+    }).then(data => {
+    res.json(data);
+  });
+});
+
 };
