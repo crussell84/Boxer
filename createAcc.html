@@ -30,38 +30,44 @@
     <!--== User Login ==-->
     <div class="valign-wrapper row login-box">
         <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
-            <form>
+            <form action="/api/createAccount" method="post">
                 <div class="card-content">
-                    <span class="card-title center thin">User Login</span>
+                    <span class="card-title center thin">Create an account</span>
                     <div class="row">
                         <div class="input-field col s12">
-                            <label for="email">Email address</label>
-                            <input type="email" class="validate" name="email" id="email" />
+                            <label for="username">username</label>
+                            <input type="username" class="validate" name="username" id="username" />
                         </div>
-                        <div class="input-field col s12">
-                            <label for="password">Password </label>
-                            <input type="password" class="validate" name="password" id="password" />
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="password" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="passwordConfirm" type="password">
+                            <label id="lblPasswordConfirm" for="passwordConfirm" data-error="Password not match"
+                                data-success="Password Match">Password (Confirm)</label>
                         </div>
                     </div>
                 </div>
                 <div class="card-action right-align">
-                    <input type="reset" id="reset" class="btn-flat grey-text waves-effect">
-                    <input type="submit" class="btn green waves-effect waves-light" value="Login">
+                    <input type="reset" id="reset1" class="btn-flat grey-text waves-effect">
+                    <input type="submit" class="btn green waves-effect waves-light signUp" value="Sign Up">
                 </div>
             </form>
             <div class="center">
-                <span class="center thin"> Don't have an account?
-                    <a href="/createAccount">Sign up! </a>
-                </span>
-            </div>
+                    <span class="center thin"> Have an account?
+                        <a href="/">Sign in! </a>
+                    </span>
+                </div>
         </div>
-
     </div>
 
 
     <!--== Javascript/jQuery Files ==-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="./public/js/login.js"></script>
+    <script src="./public/js/createAccount.js"></script>
     <script src="./assets/js/reset.js"></script>
 
 </body>
