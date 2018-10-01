@@ -44,13 +44,6 @@ app.post("/api/users/add", function(req, res) {
   });
 });
 
-//retrieve all users
-app.get("/api/users/", function(req, res) {
-      db.User.findAll({}).then(data => {
-        res.json(data);
-      });
-    });
-
 //delete user
 app.delete("/api/users/:id", function(req, res) {
   db.User.destroy({ where: { id: req.params.id } }).then(data => {
