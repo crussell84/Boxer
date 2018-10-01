@@ -30,13 +30,13 @@
     <!--== User Login ==-->
     <div class="valign-wrapper row login-box">
         <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
-            <form>
+            <form action="/api/createAccount" method="post">
                 <div class="card-content">
                     <span class="card-title center thin">Create an account</span>
                     <div class="row">
                         <div class="input-field col s12">
-                            <label for="email">Email address</label>
-                            <input type="email" class="validate" name="email" id="email" />
+                            <label for="username">username</label>
+                            <input type="username" class="validate" name="username" id="username" />
                         </div>
                     </div>
                     <div class="row">
@@ -58,7 +58,7 @@
             </form>
             <div class="center">
                     <span class="center thin"> Have an account?
-                        <a href="./login.html">Sign in! </a>
+                        <a href="/">Sign in! </a>
                     </span>
                 </div>
         </div>
@@ -67,6 +67,7 @@
 
     <!--== Javascript/jQuery Files ==-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="./public/js/createAccount.js"></script>
     <script src="./assets/js/reset.js"></script>
 
 </body>
