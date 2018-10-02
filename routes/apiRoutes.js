@@ -41,16 +41,17 @@ module.exports = function (app) {
 
   // Create user using bcrpyt to generate a password hash
   app.post('/api/users/add', function (req, res) {
-    bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
-      db.User.create({
-        username: req.body.username,
-        password: hash
-      }).then(function (data) {
-        if (data) {
-          res.redirect('/home');
-        }
-      });
-    });
+    console.log(req.body);
+    // bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
+    //   db.User.create({
+    //     username: req.body.username,
+    //     password: hash
+    //   }).then(function (data) {
+    //     if (data) {
+    //       res.redirect('/home');
+    //     }
+    //   });
+    // });
   });
 
   //Login user
