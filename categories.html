@@ -59,19 +59,19 @@
             </li>
 
             <li>
-                <a class="blue white-text darken-3 waves-effect waves-blue">
+                <a href="./products.html" class="waves-effect waves-blue" >
                     <i class="material-icons">bubble_chart</i>
                     Products
                 </a>
             </li>
             <li>
-                <a href="./categories.html" class="waves-effect waves-blue">
+                <a href="#" class="blue white-text darken-3 waves-effect waves-blue">
                     <i class="material-icons">view_list</i>
                     Categories
                 </a>
             </li>
             <li>
-                <a class="waves-effect waves-blue">
+                <a href="#" class="waves-effect waves-blue">
                     <i class="material-icons">settings</i>
                     Settings
                 </a>
@@ -88,51 +88,10 @@
     <main>
         <div class="breadcrumb grey lighten-3">
             <h6>
-                Product Inventory
+                Categories
             </h6>
         </div>
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="card">
-                    <div class="card-content black-text">
-                        <span class="card-title black-text">
-                            Add Inventory
-                        </span>
-                        <div class="row">
-                            <form class="col s12 card-content">
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <input placeholder="Item" id="item-name" type="text" class="validate">
-                                        <label for="item-name">Item Name</label>
-                                    </div>
-                                    <div class="input-field col s6">
-                                        <input placeholder="Category" id="item-category" type="text" class="validate">
-                                        <label for="item-category">Item Category</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s4">
-                                        <input placeholder="Units in Stock" id="unit-stock" type="number" class="validate">
-                                        <label for="unit-stock">Unit Stock</label>
-                                    </div>
-                                    <div class="input-field col s4">
-                                        <input placeholder="Par" id="unit-par" type="number" class="validate">
-                                        <label for="unit-par">Unit Par</label>
-                                    </div>
-                                    <div class="input-field col s4">
-                                        <input placeholder="Price Per Unit" id="unit-price" type="number" class="validate">
-                                        <label for="unit-price">Price Per Unit</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <button class="btn indigo darken-4 waves-effect waves-light" type="submit" name="action">Add
-                                        Item<i class="material-icons right">add</i></button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        
 
 
 
@@ -140,148 +99,171 @@
                 <div class="col s12 m12 l12">
                     <div class="card">
                         <div class="card-content black-text">
-                            <h4>Current Holding Inventory</h4>
-                            <table class="highlight" id="holding-inventory">
+                            <div class="row">
+                                <h4 class="ctgName">Cars</h4>
+                                
+                            </div>
+                            <hr>
+                            <!-- whatever in cars categories -->
+                            <table class="highlight" id="holdingCategories">
                                 <thead>
                                     <tr>
                                         <th>Item Name</th>
-                                        <th>Category</th>
                                         <th>Unit Stock</th>
                                         <th>Unit Par</th>
                                         <th>Unit Price</th>
+                                    
                                     </tr>
+
                                 </thead>
 
                                 <tbody>
                                     <tr>
-                                        <td>Alvin</td>
-                                        <td>Boat</td>
-                                        <td>Eclair</td>
-                                        <td>$0.87</td>
-                                        <td>17</td>
-                                    </tr>
-                                    <tr>
                                         <td>Alan</td>
-                                        <td>Car</td>
                                         <td>Jellybean</td>
                                         <td>$3.76</td>
                                         <td>17</td>
+                                        <td>
+                                                <a href="#" class="btn-floating orange btnForm"><i  class="material-icons">border_color</i></a>
+                                                <a href="#" class="btn-floating red btnForm"><i  class="material-icons">delete</i></a>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Jonathan</td>
-                                        <td>Boat</td>
                                         <td>Lollipop</td>
                                         <td>$7.00</td>
                                         <td>17</td>
+                                        <td>
+                                                <a href="#" class="btn-floating orange btnForm"><i  class="material-icons">border_color</i></a>
+                                                <a href="#" class="btn-floating red btnForm"><i  class="material-icons">delete</i></a>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Alvin</td>
-                                        <td>Boat</td>
                                         <td>Eclair</td>
                                         <td>$0.87</td>
                                         <td>17</td>
+                                        <td>
+                                                <a href="#" class="btn-floating orange btnForm"><i  class="material-icons">border_color</i></a>
+                                                <a href="#" class="btn-floating red btnForm"><i  class="material-icons">delete</i></a>
+                                        </td>
                                     </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content black-text">
+                            <div class="row">
+                                <h4 class="ctgName">Trains</h4>
+                
+                            </div>
+                            <hr>
+                            <!-- whatever in cars categories -->
+                            <table class="highlight" id="holdingCategories">
+                                <thead>
                                     <tr>
-                                        <td>Alan</td>
-                                        <td>Car</td>
-                                        <td>Jellybean</td>
-                                        <td>$3.76</td>
-                                        <td>17</td>
+                                        <th>Item Name</th>
+                                        <th>Unit Stock</th>
+                                        <th>Unit Par</th>
+                                        <th>Unit Price</th>
                                     </tr>
+
+                                </thead>
+
+                                <tbody>
                                     <tr>
                                         <td>Jonathan</td>
-                                        <td>Car</td>
                                         <td>Lollipop</td>
                                         <td>$7.00</td>
                                         <td>17</td>
+                                        <td>
+                                                <a href="#" class="btn-floating orange btnForm"><i  class="material-icons">border_color</i></a>
+                                                <a href="#" class="btn-floating red btnForm"><i  class="material-icons">delete</i></a>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td>Alvin</td>
-                                        <td>Plane</td>
-                                        <td>Eclair</td>
-                                        <td>$0.87</td>
-                                        <td>17</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alan</td>
-                                        <td>Train</td>
-                                        <td>Jellybean</td>
-                                        <td>$3.76</td>
-                                        <td>17</td>
-                                    </tr>
+
                                     <tr>
                                         <td>Jonathan</td>
-                                        <td>Plane</td>
                                         <td>Lollipop</td>
                                         <td>$7.00</td>
                                         <td>17</td>
+                                        <td>
+                                                <a href="#" class="btn-floating orange btnForm"><i  class="material-icons">border_color</i></a>
+                                                <a href="#" class="btn-floating red btnForm"><i  class="material-icons">delete</i></a>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td>Alvin</td>
-                                        <td>Car</td>
-                                        <td>Eclair</td>
-                                        <td>$0.87</td>
-                                        <td>17</td>
-                                    </tr>
+
                                     <tr>
                                         <td>Alan</td>
-                                        <td>Car</td>
                                         <td>Jellybean</td>
                                         <td>$3.76</td>
                                         <td>17</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jonathan</td>
-                                        <td>Car</td>
-                                        <td>Lollipop</td>
-                                        <td>$7.00</td>
-                                        <td>17</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alvin</td>
-                                        <td>Car</td>
-                                        <td>Eclair</td>
-                                        <td>$0.87</td>
-                                        <td>17</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alan</td>
-                                        <td>Car</td>
-                                        <td>Jellybean</td>
-                                        <td>$3.76</td>
-                                        <td>17</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jonathan</td>
-                                        <td>Plane</td>
-                                        <td>Lollipop</td>
-                                        <td>$7.00</td>
-                                        <td>17</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alvin</td>
-                                        <td>Train</td>
-                                        <td>Eclair</td>
-                                        <td>$0.87</td>
-                                        <td>17</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alan</td>
-                                        <td>Train</td>
-                                        <td>Jellybean</td>
-                                        <td>$3.76</td>
-                                        <td>17</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jonathan</td>
-                                        <td>Plane</td>
-                                        <td>Lollipop</td>
-                                        <td>$7.00</td>
-                                        <td>17</td>
+                                        <td>
+                                                <a href="#" class="btn-floating orange btnForm"><i  class="material-icons">border_color</i></a>
+                                                <a href="#" class="btn-floating red btnForm"><i  class="material-icons">delete</i></a>
+                                        </td>
                                     </tr>
 
                                 </tbody>
                             </table>
+
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content black-text">
+                            <div class="row">
+                                <h4 class="ctgName">Planes</h4>
+                               
+                            </div>
+                            <hr>
+                            <!-- whatever in cars categories -->
+                            <table class="highlight" id="holdingCategories">
+                                <thead>
+                                    <tr>
+                                        <th>Item Name</th>
+                                        <th>Unit Stock</th>
+                                        <th>Unit Par</th>
+                                        <th>Unit Price</th>
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Jonathan</td>
+                                        <td>Lollipop</td>
+                                        <td>$7.00</td>
+                                        <td>17</td>
+                                        <td>
+                                                <a href="#" class="btn-floating orange btnForm"><i  class="material-icons">border_color</i></a>
+                                                <a href="#" class="btn-floating red btnForm"><i  class="material-icons">delete</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alan</td>
+                                        <td>Jellybean</td>
+                                        <td>$3.76</td>
+                                        <td>17</td>
+                                        <td>
+                                                <a href="#" class="btn-floating orange btnForm"><i id="save" class="material-icons">border_color</i></a>
+                                                <a href="#" class="btn-floating red btnForm"><i id="save" class="material-icons">delete</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonathan</td>
+                                        <td>Lollipop</td>
+                                        <td>$7.00</td>
+                                        <td>17</td>
+                                        <td>
+                                                <a href="#" class="btn-floating orange btnForm"><i id="save" class="material-icons">border_color</i></a>
+                                                <a href="#" class="btn-floating red btnForm"><i id="save" class="material-icons">delete</i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
                         </div>
                     </div>
                 </div>
