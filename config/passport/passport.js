@@ -6,6 +6,10 @@ module.exports = (passport, user) => {
 
     passport.serializeUser((user, done) => {
         done(null, user.id);
+    });
+
+    passport.deserializeUser((id, done) => {
+        //switch(user)
     })
 }
 
