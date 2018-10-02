@@ -1,5 +1,5 @@
 var db = require("../models");
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 const saltRounds = 10;
 
 module.exports = function (app) {
