@@ -1,17 +1,22 @@
 require("dotenv").config();
-var express = require("express");
-var bodyParser = require("body-parser");
-var exphbs = require("express-handlebars");
+const express = require("express");
+const bodyParser = require("body-parser");
+const session = require("express-session");
+const passport = require("passport");
+const exphbs = require("express-handlebars");
 
-var db = require("./models");
+const db = require("./models");
 
-var app = express();
-var PORT = process.env.PORT || 3000;
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
+app.use(session({ secret: 'Prevent entry to Boxer', resave: true, saveUninitialized: true})); 
+app.use(passport.initialize()); 
+app.use(passport.session());
 
 // Handlebars
 app.engine(
@@ -22,11 +27,19 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+const models = require("./models");
+
+//console.log(models)
+
+require('./config/passport/passport.js')(passport, models.User);
+
 // Routes
-require("./routes/apiRoutes")(app);
+require("./routes/apiRoutes")(app, passport);
 require("./routes/htmlRoutes")(app);
 
-var syncOptions = { force: false };
+
+
+const syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
