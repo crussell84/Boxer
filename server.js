@@ -27,9 +27,17 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+const models = require("./models");
+
+//console.log(models)
+
+require('./config/passport/passport.js')(passport, models.User);
+
 // Routes
-require("./routes/apiRoutes")(app);
+require("./routes/apiRoutes")(app, passport);
 require("./routes/htmlRoutes")(app);
+
+
 
 const syncOptions = { force: false };
 

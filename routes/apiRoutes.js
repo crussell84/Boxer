@@ -1,8 +1,6 @@
 var db = require("../models");
-var bcrypt = require('bcrypt-nodejs');
-const saltRounds = 10;
 
-module.exports = function (app) {
+module.exports = function (app, passport) {
   // Get all examples
   app.get("/api/products/:user", function (req, res) {
 
@@ -39,20 +37,10 @@ module.exports = function (app) {
       });
   });
 
-  // Create user using bcrpyt to generate a password hash
-  app.post('/api/users/add', function (req, res) {
-    console.log(req.body);
-    // bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
-    //   db.User.create({
-    //     username: req.body.username,
-    //     password: hash
-    //   }).then(function (data) {
-    //     if (data) {
-    //       res.redirect('/home');
-    //     }
-    //   });
-    // });
-  });
+  app.post('/api/users/add', passport.authenticate("local-signup", {
+    successRedirect: "/dashboard",
+    failureRedirect: "/createAccount"
+  }))
 
   //Login user
   app.post('/api/login', function (req, res) {
