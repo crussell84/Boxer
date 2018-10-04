@@ -27,12 +27,12 @@ fs.readdirSync(__dirname)
   })
   .forEach((file) => {
     const model = sequelize.import(path.join(__dirname, file));
-    db[model.name] = model;
+    return db[model.name] = model;
   });
 
 Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
-    db[modelName].associate(db);
+    return db[modelName].associate(db);
   }
 });
 
