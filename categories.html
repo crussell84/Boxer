@@ -2,279 +2,280 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Boxer | Everything in its place.</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Boxer | Everything in its place.</title>
 
-    <!--== Favicon ==-->
-    <link rel="icon" href="./assets/images/logo.png">
+	<!--== Favicon ==-->
+	<link rel="icon" href="/images/logo.png">
 
-    <!--== CSS ==-->
-    <link href="https://fonts.googleapis.com/css?family=Bungee|Mallanna|Signika+Negative" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/css/materialize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.css">
-    <link rel="stylesheet" href="/styles/style.css">
-
-
+	<!--== CSS ==-->
+	<link href="https://fonts.googleapis.com/css?family=Bungee|Mallanna|Signika+Negative" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/css/materialize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.css">
+	<link rel="stylesheet" href="/styles/style.css">
+</head>
 
 <body>
+	<header>
+		<nav class="indigo darken-4">
+			<div class="nav-wrapper">
+				<a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
+					<i class="material-icons">menu</i>
+				</a>
 
-    <header>
-        <nav class="indigo darken-4">
-            <div class="nav-wrapper">
-                <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
-                    <i class="material-icons">menu</i>
-                </a>
-                <a href="./dashboard.html" class="brand-logo page-title">
-                    BOXER
-                </a>
-                <ul class="right hide-on-med-and-down">
-                    <li>
-                        <a href="#">
-                            <i class="material-icons">settings</i>
-                        </a>
-                    </li>
-                    <li>
-                        <i class="material-icons">exit_to_app</i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <ul id="nav-mobile" class="side-nav custom-side-nav fixed">
-            <li class="blue darken-4">
-                <div class="user">
-                    <div class="chip blue darken-2 white-text">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Icons8_flat_businessman.svg/1000px-Icons8_flat_businessman.svg.png">
-                        <span id="user-name">Rick Knowlton</span>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <a href="./dashboard.html" class="waves-effect waves-blue">
-                    <i class="material-icons white-text">dvr</i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
+				<a href="./dashboard.html" class="brand-logo page-title">
+					BOXER
+				</a>
 
-            <li>
-                <a href="./products.html" class="waves-effect waves-blue" >
-                    <i class="material-icons">bubble_chart</i>
-                    Products
-                </a>
-            </li>
-            <li>
-                <a href="#" class="blue white-text darken-3 waves-effect waves-blue">
-                    <i class="material-icons">view_list</i>
-                    Categories
-                </a>
-            </li>
-            <li>
-                <a href="#" class="waves-effect waves-blue">
-                    <i class="material-icons">settings</i>
-                    Settings
-                </a>
-            </li>
-            <li>
-                <a class="waves-effect waves-blue">
-                    <i class="material-icons">exit_to_app</i>
-                    Sign Out
-                </a>
-            </li>
+				<ul class="right hide-on-med-and-down">
+					<li>
+						<a href="#">
+							<i class="material-icons">settings</i>
+						</a>
+					</li>
 
-        </ul>
-    </header>
-    <main>
-        <div class="breadcrumb grey lighten-3">
-            <h6>
-                Categories
-            </h6>
-        </div>
-        
+					<li>
+						<i class="material-icons">exit_to_app</i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
 
+		<ul id="nav-mobile" class="side-nav custom-side-nav fixed">
+			<li class="blue darken-4">
+				<div class="user">
+					<div class="chip blue darken-2 white-text">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Icons8_flat_businessman.svg/1000px-Icons8_flat_businessman.svg.png">
+						<span id="user-name">Rick Knowlton</span>
+					</div>
+				</div>
+			</li>
 
+			<li>
+				<a href="./dashboard.html" class="waves-effect waves-blue">
+					<i class="material-icons white-text">dvr</i>
+					<span>Dashboard</span>
+				</a>
+			</li>
 
-            <div class="row">
-                <div class="col s12 m12 l12">
-                    <div class="card">
-                        <div class="card-content black-text">
-                            <div class="row">
-                                <h4 class="ctgName">Cars</h4>
-                                
-                            </div>
-                            <hr>
-                            <!-- whatever in cars categories -->
-                            <table class="highlight" id="holdingCategories">
-                                <thead>
-                                    <tr>
-                                        <th>Item Name</th>
-                                        <th>Unit Stock</th>
-                                        <th>Unit Par</th>
-                                        <th>Unit Price</th>
-                                    
-                                    </tr>
+			<li>
+				<a href="./products.html" class="waves-effect waves-blue">
+					<i class="material-icons">bubble_chart</i>
+					Products
+				</a>
+			</li>
 
-                                </thead>
+			<li>
+				<a href="#" class="blue white-text darken-3 waves-effect waves-blue">
+					<i class="material-icons">view_list</i>
+					Categories
+				</a>
+			</li>
 
-                                <tbody>
-                                    <tr>
-                                        <td>Alan</td>
-                                        <td>Jellybean</td>
-                                        <td>$3.76</td>
-                                        <td>17</td>
-                                        <td>
-                                                <a href="#" class="btn-floating orange btnForm"><i  class="material-icons">border_color</i></a>
-                                                <a href="#" class="btn-floating red btnForm"><i  class="material-icons">delete</i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jonathan</td>
-                                        <td>Lollipop</td>
-                                        <td>$7.00</td>
-                                        <td>17</td>
-                                        <td>
-                                                <a href="#" class="btn-floating orange btnForm"><i  class="material-icons">border_color</i></a>
-                                                <a href="#" class="btn-floating red btnForm"><i  class="material-icons">delete</i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alvin</td>
-                                        <td>Eclair</td>
-                                        <td>$0.87</td>
-                                        <td>17</td>
-                                        <td>
-                                                <a href="#" class="btn-floating orange btnForm"><i  class="material-icons">border_color</i></a>
-                                                <a href="#" class="btn-floating red btnForm"><i  class="material-icons">delete</i></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+			<li>
+				<a href="#" class="waves-effect waves-blue">
+					<i class="material-icons">settings</i>
+					Settings
+				</a>
+			</li>
 
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-content black-text">
-                            <div class="row">
-                                <h4 class="ctgName">Trains</h4>
-                
-                            </div>
-                            <hr>
-                            <!-- whatever in cars categories -->
-                            <table class="highlight" id="holdingCategories">
-                                <thead>
-                                    <tr>
-                                        <th>Item Name</th>
-                                        <th>Unit Stock</th>
-                                        <th>Unit Par</th>
-                                        <th>Unit Price</th>
-                                    </tr>
+			<li>
+				<a class="waves-effect waves-blue">
+					<i class="material-icons">exit_to_app</i>
+					Sign Out
+				</a>
+			</li>
+		</ul>
+	</header>
 
-                                </thead>
+	<main>
+		<div class="breadcrumb grey lighten-3">
+			<h6>
+				Categories
+			</h6>
+		</div>
 
-                                <tbody>
-                                    <tr>
-                                        <td>Jonathan</td>
-                                        <td>Lollipop</td>
-                                        <td>$7.00</td>
-                                        <td>17</td>
-                                        <td>
-                                                <a href="#" class="btn-floating orange btnForm"><i  class="material-icons">border_color</i></a>
-                                                <a href="#" class="btn-floating red btnForm"><i  class="material-icons">delete</i></a>
-                                        </td>
-                                    </tr>
+		<div class="row">
+			<div class="col s12 m12 l12">
+				<div class="card">
+					<div class="card-content black-text">
+						<div class="row">
+							<h4 class="ctgName">Cars</h4>
+						</div>
 
-                                    <tr>
-                                        <td>Jonathan</td>
-                                        <td>Lollipop</td>
-                                        <td>$7.00</td>
-                                        <td>17</td>
-                                        <td>
-                                                <a href="#" class="btn-floating orange btnForm"><i  class="material-icons">border_color</i></a>
-                                                <a href="#" class="btn-floating red btnForm"><i  class="material-icons">delete</i></a>
-                                        </td>
-                                    </tr>
+						<hr>
+						<!-- whatever in cars categories -->
+						<table class="highlight" id="holdingCategories">
+							<thead>
+								<tr>
+									<th>Item Name</th>
+									<th>Unit Stock</th>
+									<th>Unit Par</th>
+									<th>Unit Price</th>
+								</tr>
+							</thead>
 
-                                    <tr>
-                                        <td>Alan</td>
-                                        <td>Jellybean</td>
-                                        <td>$3.76</td>
-                                        <td>17</td>
-                                        <td>
-                                                <a href="#" class="btn-floating orange btnForm"><i  class="material-icons">border_color</i></a>
-                                                <a href="#" class="btn-floating red btnForm"><i  class="material-icons">delete</i></a>
-                                        </td>
-                                    </tr>
+							<tbody>
+								<tr>
+									<td>Alan</td>
+									<td>Jellybean</td>
+									<td>$3.76</td>
+									<td>17</td>
+									<td>
+										<a href="#" class="btn-floating orange btnForm"><i class="material-icons">border_color</i></a>
+										<a href="#" class="btn-floating red btnForm"><i class="material-icons">delete</i></a>
+									</td>
+								</tr>
 
-                                </tbody>
-                            </table>
+								<tr>
+									<td>Jonathan</td>
+									<td>Lollipop</td>
+									<td>$7.00</td>
+									<td>17</td>
+									<td>
+										<a href="#" class="btn-floating orange btnForm"><i class="material-icons">border_color</i></a>
+										<a href="#" class="btn-floating red btnForm"><i class="material-icons">delete</i></a>
+									</td>
+								</tr>
 
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-content black-text">
-                            <div class="row">
-                                <h4 class="ctgName">Planes</h4>
-                               
-                            </div>
-                            <hr>
-                            <!-- whatever in cars categories -->
-                            <table class="highlight" id="holdingCategories">
-                                <thead>
-                                    <tr>
-                                        <th>Item Name</th>
-                                        <th>Unit Stock</th>
-                                        <th>Unit Par</th>
-                                        <th>Unit Price</th>
-                                    </tr>
+								<tr>
+									<td>Alvin</td>
+									<td>Eclair</td>
+									<td>$0.87</td>
+									<td>17</td>
+									<td>
+										<a href="#" class="btn-floating orange btnForm"><i class="material-icons">border_color</i></a>
+										<a href="#" class="btn-floating red btnForm"><i class="material-icons">delete</i></a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
 
-                                </thead>
+				<div class="card">
+					<div class="card-content black-text">
+						<div class="row">
+							<h4 class="ctgName">Trains</h4>
+						</div>
 
-                                <tbody>
-                                    <tr>
-                                        <td>Jonathan</td>
-                                        <td>Lollipop</td>
-                                        <td>$7.00</td>
-                                        <td>17</td>
-                                        <td>
-                                                <a href="#" class="btn-floating orange btnForm"><i  class="material-icons">border_color</i></a>
-                                                <a href="#" class="btn-floating red btnForm"><i  class="material-icons">delete</i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alan</td>
-                                        <td>Jellybean</td>
-                                        <td>$3.76</td>
-                                        <td>17</td>
-                                        <td>
-                                                <a href="#" class="btn-floating orange btnForm"><i id="save" class="material-icons">border_color</i></a>
-                                                <a href="#" class="btn-floating red btnForm"><i id="save" class="material-icons">delete</i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jonathan</td>
-                                        <td>Lollipop</td>
-                                        <td>$7.00</td>
-                                        <td>17</td>
-                                        <td>
-                                                <a href="#" class="btn-floating orange btnForm"><i id="save" class="material-icons">border_color</i></a>
-                                                <a href="#" class="btn-floating red btnForm"><i id="save" class="material-icons">delete</i></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+						<hr>
+						<!-- whatever in cars categories -->
+						<table class="highlight" id="holdingCategories">
+							<thead>
+								<tr>
+									<th>Item Name</th>
+									<th>Unit Stock</th>
+									<th>Unit Par</th>
+									<th>Unit Price</th>
+								</tr>
+							</thead>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </main>
+							<tbody>
+								<tr>
+									<td>Jonathan</td>
+									<td>Lollipop</td>
+									<td>$7.00</td>
+									<td>17</td>
+									<td>
+										<a href="#" class="btn-floating orange btnForm"><i class="material-icons">border_color</i></a>
+										<a href="#" class="btn-floating red btnForm"><i class="material-icons">delete</i></a>
+									</td>
+								</tr>
 
-    <script type="text/javascript" src="http://www.chartjs.org/dist/2.7.2/Chart.bundle.js"></script>
-    <script type="text/javascript" src="http://www.chartjs.org/samples/latest/utils.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script>
+								<tr>
+									<td>Jonathan</td>
+									<td>Lollipop</td>
+									<td>$7.00</td>
+									<td>17</td>
+									<td>
+										<a href="#" class="btn-floating orange btnForm"><i class="material-icons">border_color</i></a>
+										<a href="#" class="btn-floating red btnForm"><i class="material-icons">delete</i></a>
+									</td>
+								</tr>
+
+								<tr>
+									<td>Alan</td>
+									<td>Jellybean</td>
+									<td>$3.76</td>
+									<td>17</td>
+									<td>
+										<a href="#" class="btn-floating orange btnForm"><i class="material-icons">border_color</i></a>
+										<a href="#" class="btn-floating red btnForm"><i class="material-icons">delete</i></a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-content black-text">
+						<div class="row">
+							<h4 class="ctgName">Planes</h4>
+						</div>
+
+						<hr>
+						<!-- whatever in cars categories -->
+						<table class="highlight" id="holdingCategories">
+							<thead>
+								<tr>
+									<th>Item Name</th>
+									<th>Unit Stock</th>
+									<th>Unit Par</th>
+									<th>Unit Price</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr>
+									<td>Jonathan</td>
+									<td>Lollipop</td>
+									<td>$7.00</td>
+									<td>17</td>
+									<td>
+										<a href="#" class="btn-floating orange btnForm"><i class="material-icons">border_color</i></a>
+										<a href="#" class="btn-floating red btnForm"><i class="material-icons">delete</i></a>
+									</td>
+								</tr>
+
+								<tr>
+									<td>Alan</td>
+									<td>Jellybean</td>
+									<td>$3.76</td>
+									<td>17</td>
+									<td>
+										<a href="#" class="btn-floating orange btnForm"><i id="save" class="material-icons">border_color</i></a>
+										<a href="#" class="btn-floating red btnForm"><i id="save" class="material-icons">delete</i></a>
+									</td>
+								</tr>
+
+								<tr>
+									<td>Jonathan</td>
+									<td>Lollipop</td>
+									<td>$7.00</td>
+									<td>17</td>
+									<td>
+										<a href="#" class="btn-floating orange btnForm"><i id="save" class="material-icons">border_color</i></a>
+										<a href="#" class="btn-floating red btnForm"><i id="save" class="material-icons">delete</i></a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<script type="text/javascript" src="http://www.chartjs.org/dist/2.7.2/Chart.bundle.js"></script>
+	<script type="text/javascript" src="http://www.chartjs.org/samples/latest/utils.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.js"></script>
+	<script type="text/javascript" src="/js/main.js"></script>
 
 </body>
 
