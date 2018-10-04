@@ -35,6 +35,12 @@ module.exports = (app) => {
     }
   });
 
+  // Used to log the user out
+  app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
+  });
+
 
   // Get all examples
   app.get("/api/products/:user", function (req, res) {
