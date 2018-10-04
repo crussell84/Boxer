@@ -1,7 +1,5 @@
-console.log("js loaded");
-$(document).ready(function() {
-    
-    const newAccountForm = $(".newAccount");
+$(document).ready(() => {
+    const newAccountForm = $("form.newAccount");
     const usernameInput = $("input#username");
     const passwordInput = $("input#password");
 
@@ -29,7 +27,7 @@ $(document).ready(function() {
             password: passwordInput.val().trim()
         };
 
-        if(!userData.username || !userData.password) {
+        if (!userData.username || !userData.password) {
             return
         }
 

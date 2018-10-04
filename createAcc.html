@@ -7,19 +7,17 @@
     <title>Boxer | Everything in its place.</title>
 
     <!--== Favicon ==-->
-    <link rel="icon" href="./assets/images/logo.png" type="image/x-icon" />
+    <link rel="icon" href="/images/logo.png" type="image/x-icon" />
 
     <!--== CSS/Stylesheet Files ==-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
 
 <body>
-
     <!--== Navbar ==-->
     <nav>
         <div class="nav-wrapper indigo darken-3">
@@ -39,11 +37,13 @@
                             <input type="username" class="validate" name="username" id="username" />
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="input-field col s6">
                             <input id="password" type="password" class="validate" name="password">
                             <label for="password">Password</label>
                         </div>
+
                         <div class="input-field col s6">
                             <input id="passwordConfirm" type="password">
                             <label id="lblPasswordConfirm" for="passwordConfirm" data-error="Password not match"
@@ -51,24 +51,25 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="card-action right-align">
                     <input type="reset" id="reset1" class="btn-flat grey-text waves-effect">
                     <input type="submit" class="btn green waves-effect waves-light signUp" value="Sign Up">
                 </div>
             </form>
             <div class="center">
-                    <span class="center thin"> Have an account?
-                        <a href="/">Sign in! </a>
-                    </span>
-                </div>
+                <span class="center thin"> Have an account?
+                    <a href="/">Sign in! </a>
+                </span>
+            </div>
         </div>
     </div>
 
 
     <!--== Javascript/jQuery Files ==-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <!-- <script src="./assets/js/reset.js"></script> -->
-    <script type="text/javascript" src="/js/createAccount.js"></script>
+    <script src="/js/reset.js"></script>
+    <script src="/js/createAccount.js"></script>
 </body>
 
 </html>

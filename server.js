@@ -14,8 +14,8 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
-app.use(session({ secret: 'Prevent entry to Boxer', resave: true, saveUninitialized: true})); 
-app.use(passport.initialize()); 
+app.use(session({ secret: 'Prevent entry to Boxer', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
 app.use(passport.session());
 
 // Handlebars
@@ -42,8 +42,8 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
+db.sequelize.sync(syncOptions).then(function () {
+  app.listen(PORT, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
