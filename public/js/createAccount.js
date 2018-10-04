@@ -9,7 +9,6 @@ $(document).ready(() => {
     }
 
     const signUp = (username, password) => {
-        console.log(username, password);
         $.post("/api/signup", {
             username: username,
             password: password
