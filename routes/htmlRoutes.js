@@ -6,28 +6,26 @@ module.exports = function(app) {
 
   app.get("/", (req, res) => {
     if(req.user) {
-      res.redirect("/dashboard");z
+      res.redirect("/dashboard");
     }
 
     res.sendFile('code/login.html', {root: "../"});
   });
 
   app.get("/signup", (req, res) => {
-    // console.log(req.user);
-    // console.log(req.params)
     if(req.user) {
-      res.redirect("/dashboard");z
+      res.redirect("/dashboard");
     }
-
-    // if(req.params.username) {
-    //   res.redirect("/login");
-    // }
 
     res.sendFile('code/createAcc.html', {root: "../"});
   });
 
   app.get("/dashboard", isAuthenticated, (req, res) => {
     res.sendFile('code/dashboard.html', {root: "../"});
+  })
+
+  app.get("/products", isAuthenticated, (req, res) => {
+    res.sendFile("code/products.html", {root: "../"})
   })
 
   //todo use auth on all below

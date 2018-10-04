@@ -1,7 +1,6 @@
-console.log("js loaded");
 $(document).ready(function() {
     
-    const newAccountForm = $(".newAccount");
+    const newAccountForm = $("form.newAccount");
     const usernameInput = $("input#username");
     const passwordInput = $("input#password");
 
@@ -11,6 +10,7 @@ $(document).ready(function() {
     }
 
     const signUp = (username, password) => {
+        console.log(username, password);
         $.post("/api/signup", {
             username: username,
             password: password

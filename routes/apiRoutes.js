@@ -8,7 +8,6 @@ module.exports = function (app) {
   })
 
   app.post("/api/signup", (req, res) => {
-    console.log("HEre");
     db.User.create({
       username: req.body.username,
       password: req.body.password
@@ -19,6 +18,18 @@ module.exports = function (app) {
       res.json(err);
     })
   })
+
+  app.get("/api/users/data", (req, res) => {
+    if (!req.user) {
+      res.json({});
+    }
+    else {
+      res.json({
+        username: req.user.username,
+        id: req.user.id
+      });
+    }
+  });
 
   // // Get all examples
   app.get("/api/products/:user", function (req, res) {
