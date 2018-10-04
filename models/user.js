@@ -21,8 +21,6 @@ module.exports = (sequelize, DataTypes) => {
 		User.hasMany(models.Product, {
 			onDelete: "cascade"
 		});
-
-		return
 	};
 
 	User.prototype.validPassword = function (password) {
@@ -30,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
 	};
 
 	User.hook("beforeCreate", (user) => {
-		 return user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(saltRounds), null);
+		user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(saltRounds), null);
 	});
 
 	return User;

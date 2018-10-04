@@ -1,5 +1,4 @@
 $(document).ready(() => {
-
     const newAccountForm = $("form.newAccount");
     const usernameInput = $("input#username");
     const passwordInput = $("input#password");
