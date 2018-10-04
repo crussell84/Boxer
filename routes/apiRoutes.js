@@ -1,7 +1,26 @@
 var db = require("../models");
+const passport = require("../config/passport/passport.js")
 
-module.exports = function (app, passport) {
-  // Get all examples
+module.exports = function (app) {
+
+  app.post("/api/login", passport.authenticate("local"), (req, res) => {
+    res.json("/dashboard")
+  })
+
+  app.post("/api/signup", (req, res) => {
+    console.log("HEre");
+    db.User.create({
+      username: req.body.username,
+      password: req.body.password
+    }).then(function() {
+      res.redirect(307, "/api/login");
+    }).catch(function(err) {
+      console.log(`Error: ${err}`);
+      res.json(err);
+    })
+  })
+
+  // // Get all examples
   app.get("/api/products/:user", function (req, res) {
 
     // need to get userID from front end and include that in the request to filter the table by user
@@ -37,33 +56,6 @@ module.exports = function (app, passport) {
       });
   });
 
-  app.post('/api/users/add', passport.authenticate("local-signup", {
-    successRedirect: "/dashboard",
-    failureRedirect: "/createAccount"
-  }))
-
-  //Login user
-  app.post('/api/login', function (req, res) {
-    db.User.findOne({
-      where: {
-        username: req.body.username
-      }
-    }).then(function (user) {
-      if (!user) {
-        res.redirect('/');
-      } else {
-        bcrypt.compare(req.body.password, user.password, function (err, result) {
-          if (result == true) {
-            res.redirect('/dashboard');
-          } else {
-            res.send('Invalid login credentials');
-            res.redirect('/');
-          }
-        });
-      }
-    });
-  });
-
   //delete user
   app.delete("/api/users/:id", function (req, res) {
     db.User.destroy({ where: { id: req.params.id } }).then(data => {
@@ -83,5 +75,4 @@ module.exports = function (app, passport) {
         res.json(data);
       });
   });
-
 };
