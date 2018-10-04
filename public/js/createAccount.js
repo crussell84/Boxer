@@ -1,10 +1,39 @@
-const username = $("#username");
-const password = $("#password");
-const createAccountButton = $("#createAccountButton");
+console.log("js loaded");
+$(document).ready(function() {
+    
+    const newAccountForm = $(".newAccount");
+    const usernameInput = $("input#username");
+    const passwordInput = $("input#password");
 
-const newUserInfo = {
-    username: username.val().trim(),
-    password: password.val().trim()
-}
+    const resetForm = () => {
+        usernameInput.val("");
+        passwordInput.val("");
+    }
 
-$.post("/")
+    const signUp = (username, password) => {
+        $.post("/api/signup", {
+            username: username,
+            password: password
+        }).then((data) => {
+            window.location.replace(data);
+        }).catch((err) => {
+            console.log(`Error: ${err}`);
+        })
+    }
+
+    newAccountForm.on("submit", (event) => {
+        event.preventDefault();
+
+        const userData = {
+            username: usernameInput.val().trim(),
+            password: passwordInput.val().trim()
+        };
+
+        if(!userData.username || !userData.password) {
+            return
+        }
+
+        signUp(userData.username, userData.password);
+        resetForm();
+    })
+})
