@@ -2,9 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
-const passport = require("passport");
 const exphbs = require("express-handlebars");
 
+const passport = require("./config/passport/passport.js")
 const db = require("./models");
 
 const app = express();
@@ -27,14 +27,8 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-const models = require("./models");
-
-//console.log(models)
-
-require('./config/passport/passport.js')(passport, models.User);
-
 // Routes
-require("./routes/apiRoutes")(app, passport);
+require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 
