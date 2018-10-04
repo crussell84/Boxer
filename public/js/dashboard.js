@@ -1,12 +1,11 @@
-// Materialize Button Collapse Function
 $(document).ready(function () {
-
     $.get("/api/users/data").then((data) => {
-        //to-do console.log needs to be removed
-        console.log(data);
+        // data conatins data.username and data.id
+        // Add all of the dynamic stuff you need with the user in here (including grabbing a reference to the id)
         $("#user-name").text(data.username);
       });
 
+      // Materialize Button Collapse Function
     (function () {
         $(".button-collapse").sideNav();
         $('.collapsible').collapsible();
@@ -18,11 +17,11 @@ $(document).ready(function () {
 
     // Chart.js Function
 
-    var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
+    const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
         'November', 'December'
     ];
-    var color = Chart.helpers.color;
-    var barChartData = {
+    const color = Chart.helpers.color;
+    const barChartData = {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [{
             label: 'Purchases',
@@ -56,8 +55,8 @@ $(document).ready(function () {
 
     };
 
-    window.onload = function () {
-        var ctx = document.getElementById('canvas').getContext('2d');
+    window.onload = () => {
+        const ctx = document.getElementById('canvas').getContext('2d');
         window.myBar = new Chart(ctx, {
             type: 'bar',
             data: barChartData,
@@ -75,10 +74,10 @@ $(document).ready(function () {
 
     };
 
-    document.getElementById('randomizeData').addEventListener('click', function () {
-        var zero = Math.random() < 0.2 ? true : false;
-        barChartData.datasets.forEach(function (dataset) {
-            dataset.data = dataset.data.map(function () {
+    document.getElementById('randomizeData').addEventListener('click', () => {
+        const zero = Math.random() < 0.2 ? true : false;
+        barChartData.datasets.forEach((dataset) => {
+            dataset.data = dataset.data.map(() => {
                 return zero ? 0.0 : randomScalingFactor();
             });
 
@@ -86,11 +85,11 @@ $(document).ready(function () {
         window.myBar.update();
     });
 
-    var colorNames = Object.keys(window.chartColors);
+    const colorNames = Object.keys(window.chartColors);
     document.getElementById('addDataset').addEventListener('click', function () {
-        var colorName = colorNames[barChartData.datasets.length % colorNames.length];
-        var dsColor = window.chartColors[colorName];
-        var newDataset = {
+        const colorName = colorNames[barChartData.datasets.length % colorNames.length];
+        const dsColor = window.chartColors[colorName];
+        const newDataset = {
             label: 'Dataset ' + barChartData.datasets.length,
             backgroundColor: color(dsColor).alpha(0.5).rgbString(),
             borderColor: dsColor,
@@ -98,7 +97,7 @@ $(document).ready(function () {
             data: []
         };
 
-        for (var index = 0; index < barChartData.labels.length; ++index) {
+        for (const index = 0; index < barChartData.labels.length; ++index) {
             newDataset.data.push(randomScalingFactor());
         }
 
@@ -106,12 +105,12 @@ $(document).ready(function () {
         window.myBar.update();
     });
 
-    document.getElementById('addData').addEventListener('click', function () {
+    document.getElementById('addData').addEventListener('click', () => {
         if (barChartData.datasets.length > 0) {
-            var month = MONTHS[barChartData.labels.length % MONTHS.length];
+            const month = MONTHS[barChartData.labels.length % MONTHS.length];
             barChartData.labels.push(month);
 
-            for (var index = 0; index < barChartData.datasets.length; ++index) {
+            for (const index = 0; index < barChartData.datasets.length; ++index) {
                 // window.myBar.addData(randomScalingFactor(), index);
                 barChartData.datasets[index].data.push(randomScalingFactor());
             }
@@ -120,15 +119,15 @@ $(document).ready(function () {
         }
     });
 
-    document.getElementById('removeDataset').addEventListener('click', function () {
+    document.getElementById('removeDataset').addEventListener('click', () => {
         barChartData.datasets.splice(0, 1);
         window.myBar.update();
     });
 
-    document.getElementById('removeData').addEventListener('click', function () {
+    document.getElementById('removeData').addEventListener('click', () => {
         barChartData.labels.splice(-1, 1); // remove the label first
 
-        barChartData.datasets.forEach(function (dataset) {
+        barChartData.datasets.forEach((dataset) => {
             dataset.data.pop();
         });
 

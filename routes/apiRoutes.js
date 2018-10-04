@@ -1,24 +1,28 @@
-var db = require("../models");
+// npm/file linking
+const db = require("../models");
 const passport = require("../config/passport/passport.js")
 
-module.exports = function (app) {
+module.exports = (app) => {
 
+  // Used for logging in
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
-    res.json("/dashboard")
-  })
+    res.json("/dashboard");
+  });
 
+  // Used for creating an account
   app.post("/api/signup", (req, res) => {
     db.User.create({
       username: req.body.username,
       password: req.body.password
-    }).then(function() {
+    }).then(() => {
       res.redirect(307, "/api/login");
-    }).catch(function(err) {
+    }).catch((err) => {
       console.log(`Error: ${err}`);
       res.json(err);
     })
-  })
+  });
 
+  // Used to get data on who is currently logged in
   app.get("/api/users/data", (req, res) => {
     if (!req.user) {
       res.json({});
@@ -31,7 +35,8 @@ module.exports = function (app) {
     }
   });
 
-  // // Get all examples
+
+  // Get all examples
   app.get("/api/products/:user", function (req, res) {
 
     // need to get userID from front end and include that in the request to filter the table by user
