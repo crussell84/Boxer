@@ -108,4 +108,13 @@ module.exports = (app) => {
       res.json(data);
     });
   });
+  app.get("/api/products/:user/newest", function (req, res) {
+
+    // need to get userID from front end and include that in the request to filter the table by user
+    db.Product.findAll({ where: { 
+      userID: req.params.user
+    }, order: db.sequelize.col('createdAt'), limit: 3 }).then(data => {
+      res.json(data);
+    });
+  });
 };

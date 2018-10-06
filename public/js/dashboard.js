@@ -1,7 +1,12 @@
 $(document).ready(function () {
     const getProductData = (userData) => {
-        $.get(`/api/products/${userData.id}`).then((data) => {
+        $.get(`/api/products/${userData.id}/newest`).then((data) => {
             console.log(`Products Data:`, data);
+            data.forEach(function (element){
+                var newRow = $('<tr></tr>');
+                newRow.append(`<td>${element.itemName}</td><td>${element.sellPrice}</td><td>${element.currentQuantity}</td>`);
+                $("#newProductsTable").append(newRow);
+            })
         });
     }
     const getLowStock = (userData) => {
