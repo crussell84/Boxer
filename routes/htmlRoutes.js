@@ -18,19 +18,19 @@ module.exports = (app) => {
       res.redirect("/dashboard");
     }
 
-    res.sendFile(path.join(__dirname,"public/html/creatAcc.html"));
+    res.sendFile(path.join("public/html/creatAcc.html"), {root: './'});
   });
 
   app.get("/dashboard", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname,"public/html/dashboard.html"));
+    res.sendFile(path.join("public/html/dashboard.html"), {root: './'});
   });
 
   app.get("/products", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname,"public/html/products.html"))
+    res.sendFile(path.join("public/html/products.html"), {root: './'})
   });
 
   app.get("/categories", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname,"public/html/categories.html"));
+    res.sendFile(path.join("public/html/categories.html"), {root: './'});
   });
 
   // Render 404 page for any unmatched routes
