@@ -13,7 +13,6 @@ $(document).ready(function () {
             username: username,
             password: password
         }).then((data) => {
-            console.log(data);
             window.location.replace(data);
         }).catch((err) => {
             console.log(`Error: ${err}`)

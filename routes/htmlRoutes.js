@@ -29,8 +29,8 @@ module.exports = (app) => {
     res.sendFile("code/products.html", { root: "../" })
   });
 
-  app.get("/catagories", isAuthenticated, (req, res) => {
-    res.sendFile('code/catagories.html', { root: "../" });
+  app.get("/categories", isAuthenticated, (req, res) => {
+    res.sendFile('code/categories.html', { root: "../" });
   });
 
   // Render 404 page for any unmatched routes
