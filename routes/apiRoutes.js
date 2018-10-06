@@ -3,14 +3,13 @@ const db = require("../models");
 const passport = require("../config/passport/passport.js")
 
 module.exports = (app) => {
-
   // Used for logging in
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     res.json("/dashboard");
   });
 
   // Used for creating an account
-  app.post("/api/signup", (req, res) => {
+  app.post("/api/signup", function(req, res) {
     db.User.create({
       username: req.body.username,
       password: req.body.password
@@ -18,8 +17,7 @@ module.exports = (app) => {
       res.json("/dashboard");
     })
     .catch((err) => {
-      console.log('Error');
-      console.log(err);
+      console.log("Error:", err);
       res.json(err);
     })
   });
