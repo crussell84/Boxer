@@ -34,4 +34,64 @@ $(document).ready(function () {
     }
     
     getUserData();
+
+
+    const newProductForm = $("form.newProduct");
+    const itemName       = $("input#item-name");
+    const itemCategory   = $("input#item-category");
+    const unitStock      = $("input#unit-stock");
+    const unitPar        = $("input#unit-par");
+    const unitPrice      = $("input#unit-price");
+    
+
+    const resetForm = () => {
+        itemName.val("");
+        itemCategory.val("");
+        unitStock.val("");
+        unitPar.val("");
+        unitPrice.val("");
+    }
+
+    const addProduct = (productData) => {
+        console.log(productData);
+
+        $.post("/api/products/add", {
+            itemName: productData.name,
+            category: productData.category,
+            currentQuantity: productData.stock,
+            reorderThreshold: productData.par,
+            sellPrice: productData.price,
+            costToGet: 0,
+            // UserId: ,
+            
+        }).then((data) => {
+            window.location.reload();
+
+        }).catch((err) => {
+            console.log(err);
+        });
+    }
+
+
+
+    newProductForm.on("submit", (event) => {
+        event.preventDefault();
+
+       const productData = {
+           name: itemName.val().trim(),
+           category: itemCategory.val().trim(),
+           stock: unitStock.val().trim(),
+           par: unitPar.val().trim(),
+           price: unitPrice.val().trim(), 
+       }
+
+       if(!productData.name || !productData.category || !productData.stock || !productData.par || !productData.price){
+           return
+       }
+       addProduct(productData);
+       resetForm();
+    })
+
+
+    
 });
