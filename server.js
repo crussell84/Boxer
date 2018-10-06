@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static("public"));
+app.use(express.static(__dirname + "public"));
 app.use(session({ secret: 'Prevent entry to Boxer', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
