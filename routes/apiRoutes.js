@@ -97,4 +97,15 @@ module.exports = (app) => {
         res.json(data);
       });
   });
+
+  app.get("/api/products/:user/lowstock", function (req, res) {
+
+    // need to get userID from front end and include that in the request to filter the table by user
+    db.Product.findAll({ where: { 
+      userID: req.params.user,
+      currentQuantity: {$lte: db.sequelize.col('reorderThreshold')}
+    } }).then(data => {
+      res.json(data);
+    });
+  });
 };

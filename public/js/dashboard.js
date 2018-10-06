@@ -4,6 +4,19 @@ $(document).ready(function () {
             console.log(`Products Data:`, data);
         });
     }
+    const getLowStock = (userData) => {
+        $.get(`/api/products/${userData.id}/lowstock`).then((data) => {
+            console.log(`Lowstock Data:`, data);
+            var lowCount = 0;
+            data.forEach(function (element){
+                lowCount ++;
+                var newRow = $('<tr></tr>');
+                newRow.append(`<td>${element.itemName}</td><td>${element.reorderThreshold}</td><td>${element.currentQuantity}</td>`);
+                $("#lowStock").append(newRow);
+            })
+            $("#low-count").text(lowCount);
+        });
+    }
 
     const getUserData = () => {
         $.get("/api/users/data").then((data) => {
@@ -12,6 +25,7 @@ $(document).ready(function () {
             // Add all of the dynamic stuff you need with the user in here (including grabbing a reference to the id)
             $("#user-name").text(data.username);
             getProductData(data);
+            getLowStock(data);
         });
     }
 
