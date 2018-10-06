@@ -13,7 +13,14 @@ $(document).ready(() => {
             username: username,
             password: password
         }).then((data) => {
-            window.location.replace(data);
+            $.post("/api/login", {
+                username: username,
+                password: password
+            }).then((data) => {
+                window.location.replace(data);
+            }).catch((err) => {
+                console.log(`Error: ${err}`)
+            })
         }).catch((err) => {
             console.log(`Error: ${err}`);
         })

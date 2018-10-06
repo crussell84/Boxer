@@ -15,9 +15,11 @@ module.exports = (app) => {
       username: req.body.username,
       password: req.body.password
     }).then(() => {
-      res.redirect(307, "/dashboard");
-    }).catch((err) => {
-      console.log(`Error: ${err}`);
+      res.json("/dashboard");
+    })
+    .catch((err) => {
+      console.log('Error');
+      console.log(err);
       res.json(err);
     })
   });
