@@ -188,7 +188,7 @@
                         <i class="material-icons circle red darken-2">warning</i>
                         <span class="collection-header">Low Stock Warning</span>
                         <p>
-                            <span class="green-text darken-text-4" id="low-count">0</span>
+                            <span class="green-text darken-text-4" id="low-count"></span>
                             Items Running Low
                         </p>
                     </li>
@@ -202,22 +202,8 @@
                                         <th>Current Stock</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Sprockets</td>
-                                        <td>10</td>
-                                        <td>2</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Widgets</td>
-                                        <td>5</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bananas</td>
-                                        <td>12</td>
-                                        <td>8</td>
-                                    </tr>
+                                <tbody id="lowStock">
+                                    <!-- dynamically added via script -->
                                 </tbody>
                             </table>
                         </small>
