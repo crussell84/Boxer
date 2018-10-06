@@ -18,7 +18,7 @@ module.exports = (app) => {
       res.redirect("/dashboard");
     }
 
-    res.sendFile(path.join("public/html/creatAcc.html"), {root: './'});
+    res.sendFile(path.join("public/html/createAcc.html"), {root: './'});
   });
 
   app.get("/dashboard", isAuthenticated, (req, res) => {
