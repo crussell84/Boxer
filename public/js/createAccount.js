@@ -2,7 +2,7 @@ $(document).ready(() => {
     const newAccountForm = $("form.newAccount");
     const usernameInput = $("input#username");
     const passwordInput = $("input#password");
-    const confirmPasswordInput = $("input#lblPasswordConfirm");
+    const confirmPasswordInput = $("input#passwordConfirm");
 
     const resetForm = () => {
         usernameInput.val("");
@@ -15,14 +15,14 @@ $(document).ready(() => {
         $.post("/api/signup", {
             username: username,
             password: password
-        }).then((data) => {
+        }).then(() => {
             $.post("/api/login", {
                 username: username,
                 password: password
             }).then((data) => {
                 window.location.replace(data);
             }).catch((err) => {
-                console.log(`Error: ${err}`)
+                console.log("Error:", err)
             })
         }).catch((err) => {
             console.log("Error:", err);

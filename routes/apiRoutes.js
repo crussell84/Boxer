@@ -3,10 +3,6 @@ const db = require("../models");
 const passport = require("../config/passport/passport.js")
 
 module.exports = (app) => {
-  // app.post("/dashboard", function(req, res) {
-  //   res.redirect(307, "/dashboard");
-  // })
-
   // Used for logging in
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     res.json("/dashboard");
@@ -21,8 +17,7 @@ module.exports = (app) => {
       res.json("/dashboard");
     })
     .catch((err) => {
-      console.log('Error');
-      console.log(err);
+      console.log("Error:", err);
       res.json(err);
     })
   });
