@@ -10,7 +10,7 @@ module.exports = (app) => {
       res.redirect("/dashboard");
     }
 
-    res.sendFile(path.join(__dirname,"/html/index.html"));
+    res.sendFile(path.join(__dirname,"public/html/index.html"));
   });
 
   app.get("/signup", (req, res) => {
