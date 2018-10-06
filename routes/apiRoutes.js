@@ -17,10 +17,12 @@ module.exports = (app) => {
     db.User.create({
       username: req.body.username,
       password: req.body.password
-    }).then(function() {
+    }).then(() => {
       res.json("/dashboard");
-    }).catch(function(err) {
-      console.log("api Error:", err);
+    })
+    .catch((err) => {
+      console.log('Error');
+      console.log(err);
       res.json(err);
     })
   });

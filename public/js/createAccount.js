@@ -15,7 +15,7 @@ $(document).ready(() => {
         $.post("/api/signup", {
             username: username,
             password: password
-        }).then(function(data) {
+        }).then((data) => {
             $.post("/api/login", {
                 username: username,
                 password: password
@@ -23,7 +23,7 @@ $(document).ready(() => {
                 window.location.replace(data);
             }).catch((err) => {
                 console.log(`Error: ${err}`)
-            });
+            })
         }).catch((err) => {
             console.log("Error:", err);
         });       
