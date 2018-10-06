@@ -10,7 +10,7 @@ module.exports = (app) => {
       res.redirect("/dashboard");
     }
 
-    res.sendFile(path.join(__dirname,"public/html/index.html"));
+    res.sendFile(path.join("public/html/index.html"), {root: './'});
   });
 
   app.get("/signup", (req, res) => {
@@ -18,19 +18,19 @@ module.exports = (app) => {
       res.redirect("/dashboard");
     }
 
-    res.sendFile('/html/createAcc.html', { root: "./" });
+    res.sendFile(path.join(__dirname,"public/html/creatAcc.html"));
   });
 
   app.get("/dashboard", isAuthenticated, (req, res) => {
-    res.sendFile('/html/dashboard.html', { root: "./" });
+    res.sendFile(path.join(__dirname,"public/html/dashboard.html"));
   });
 
   app.get("/products", isAuthenticated, (req, res) => {
-    res.sendFile("/html/products.html", { root: "./" })
+    res.sendFile(path.join(__dirname,"public/html/products.html"))
   });
 
   app.get("/categories", isAuthenticated, (req, res) => {
-    res.sendFile('/html/categories.html', { root: "./" });
+    res.sendFile(path.join(__dirname,"public/html/categories.html"));
   });
 
   // Render 404 page for any unmatched routes
