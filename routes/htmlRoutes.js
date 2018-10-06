@@ -10,7 +10,7 @@ module.exports = (app) => {
       res.redirect("/dashboard");
     }
 
-    res.sendFile('code/public/html/login.html', { root: "../" });
+    res.sendFile('code/public/html/index.html', { root: "../" });
   });
 
   app.get("/signup", (req, res) => {
