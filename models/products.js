@@ -17,11 +17,11 @@ module.exports = (sequelize, DataTypes) => {
 			allowNull: false,
 		},
 		sellPrice: {
-			type: DataTypes.INTEGER,
+			type: DataTypes.DECIMAL(10,2),
 			allowNull: true,
 		},
 		costToGet: {
-			type: DataTypes.INTEGER,
+			type: DataTypes.DECIMAL(10,2),
 			allowNull: true,
 		},
 		currentlyUsed: {
