@@ -3,6 +3,7 @@ $(document).ready(function () {
         $.get(`/api/products/${userData.id}`).then((data) => {
             console.log(`Products Data:`, data);
             data.forEach((product) => {
+                // Table elements
                 const $tableBody = $("tbody.productsTBody")
                 const $tableRow = $("<tr>");
                 const $nameCol = $("<td>");
@@ -10,14 +11,36 @@ $(document).ready(function () {
                 const $stockCol = $("<td>");
                 const $reorderCol = $("<td>");
                 const $priceCol = $("<td>");
-                
+                const $buttonsCol = $("<td>");
+
+                // Button elements
+                const $editButton = $("<a>");
+                const $editIcon = $("<i>");
+                const $deleteButton = $("<a>");
+                const $deleteIcon = $("<i>");
+
+                // Creating table with data                
                 $nameCol.text(product.itemName);
                 $categoryCol.text(product.category);
                 $stockCol.text(product.currentQuantity);
                 $reorderCol.text(product.reorderThreshold);
                 $priceCol.text(product.sellPrice);
 
-                $tableRow.append($nameCol, $categoryCol, $stockCol, $reorderCol, $priceCol);
+                // Creating edit button                
+                const editLink = `/products/edit/${product.id}`;
+                $editButton.attr("href", editLink).addClass("btn-floating orange btnForm");                
+                $editIcon.addClass("material-icons").text("border_color");
+                $editButton.append($editIcon);
+
+                // Creating delete button
+                const deleteLink = `/products/delete/${product.id}`;
+                $deleteButton.attr("href", deleteLink).addClass("btn-floating red btnForm");
+                $deleteIcon.addClass("material-icons").text("delete");
+                $deleteButton.append($deleteIcon);
+                
+                $buttonsCol.append($editButton, $deleteButton);
+
+                $tableRow.append($nameCol, $categoryCol, $stockCol, $reorderCol, $priceCol, $buttonsCol);
                 $tableBody.append($tableRow);
             })
         });
@@ -25,16 +48,12 @@ $(document).ready(function () {
 
     const getUserData = () => {
         $.get("/api/users/data").then((data) => {
-            console.log(`User Data:`, data)
-            // data conatins data.username and data.id
-            // Add all of the dynamic stuff you need with the user in here (including grabbing a reference to the id)
             $("#user-name").text(data.username);
             getProductData(data);
         });
     }
     
     getUserData();
-
 
     const newProductForm = $("form.newProduct");
     const itemName       = $("input#item-name");
@@ -53,26 +72,22 @@ $(document).ready(function () {
     }
 
     const addProduct = (productData) => {
-        console.log(productData);
-
-        $.post("/api/products/add", {
-            itemName: productData.name,
-            category: productData.category,
-            currentQuantity: productData.stock,
-            reorderThreshold: productData.par,
-            sellPrice: productData.price,
-            costToGet: 0,
-            // UserId: ,
-            
-        }).then((data) => {
-            window.location.reload();
-
-        }).catch((err) => {
-            console.log(err);
-        });
+        $.get("/api/users/data").then((data) => {
+            $.post("/api/products/add", {
+                itemName: productData.name,
+                category: productData.category,
+                currentQuantity: productData.stock,
+                reorderThreshold: productData.par,
+                sellPrice: productData.price,
+                costToGet: 0,
+                UserId: data.id
+            }).then(() => {
+                window.location.reload();
+            }).catch((err) => {
+                console.log("Error:", err);
+            });           
+        });        
     }
-
-
 
     newProductForm.on("submit", (event) => {
         event.preventDefault();
@@ -85,9 +100,10 @@ $(document).ready(function () {
            price: unitPrice.val().trim(), 
        }
 
-       if(!productData.name || !productData.category || !productData.stock || !productData.par || !productData.price){
+       if(!productData.name || !productData.category || !productData.stock || !productData.par || !productData.price) {
            return
        }
+
        addProduct(productData);
        resetForm();
     })

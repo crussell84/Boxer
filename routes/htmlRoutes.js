@@ -33,6 +33,15 @@ module.exports = (app) => {
     res.sendFile(path.join("public/html/categories.html"), {root: './'});
   });
 
+  // Edit products, Still working on
+  app.get("/products/edit/:productID", isAuthenticated, (req, res) => {
+    res.sendFile(path.join("public/html/dashboard.html"), {root: './'})
+  });
+
+  app.get("/products/delete/:productID", isAuthenticated, (req, res) => {
+    res.sendFile(path.join("public/html/dashboard.html"), {root: './'})
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", (req, res) => {
     res.render("404");
