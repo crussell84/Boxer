@@ -41,7 +41,6 @@ module.exports = (app) => {
     res.redirect("/");
   });
 
-
   // Get all examples
   app.get("/api/products/:user", function (req, res) {
 
@@ -108,6 +107,7 @@ module.exports = (app) => {
       res.json(data);
     });
   });
+  
   app.get("/api/products/:user/newest", function (req, res) {
 
     // need to get userID from front end and include that in the request to filter the table by user
