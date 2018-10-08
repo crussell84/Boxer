@@ -19,6 +19,10 @@ footer {
   margin-top: 8px;
 }
 
+.brand-logo.login {
+  margin-left: 8px;
+}
+
 .nav-badge {
   margin-left: -8px;
   position: absolute;
