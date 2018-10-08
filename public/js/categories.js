@@ -1,14 +1,13 @@
 $(document).ready(function () {
     const createTable = (category) => {
         const $tableBody = $("<tbody>");
-
-        console.log(category);
-
+        
         category.forEach((product) => {
             const $tableRow = $("<tr>");
             const $nameCol = $("<td>");
             const $stockCol = $("<td>");
             const $reorderCol = $("<td>");
+            const $costCol = $("<td>");
             const $priceCol = $("<td>");
             const $buttonsCol = $("<td>");
 
@@ -22,6 +21,7 @@ $(document).ready(function () {
             $nameCol.text(product.itemName);
             $stockCol.text(product.currentQuantity);
             $reorderCol.text(product.reorderThreshold);
+            $costCol.text(product.costToGet);
             $priceCol.text(product.sellPrice);
 
             // Creating edit button                
@@ -36,7 +36,7 @@ $(document).ready(function () {
             
             $buttonsCol.append($editButton, $deleteButton);
 
-            $tableRow.append($nameCol, $stockCol, $reorderCol, $priceCol, $buttonsCol);
+            $tableRow.append($nameCol, $stockCol, $reorderCol, $priceCol, $costCol, $buttonsCol);
             $tableBody.append($tableRow);
         });
 
@@ -55,13 +55,14 @@ $(document).ready(function () {
             const $table = $("<table>").addClass("highlight");
             const $tableHead = $("<thead>");
             const $tableRow = $("<tr>");
-            const $nameCol = $("<td>").text("Item Name");
-            const $stockCol = $("<td>").text("Unit Stock");
-            const $reorderCol = $("<td>").text("Unit Par");
-            const $priceCol = $("<td>").text("Unit Price");
-            const $buttonsCol = $("<td>");
+            const $nameCol = $("<th>").text("Item Name");
+            const $stockCol = $("<th>").text("Unit Stock");
+            const $reorderCol = $("<th>").text("Unit Par");
+            const $costCol = $("<th>").text("Unit Cost");
+            const $priceCol = $("<th>").text("Unit Price");
+            const $buttonsCol = $("<th>");
 
-            $tableRow.append($nameCol, $stockCol, $reorderCol, $priceCol, $buttonsCol);
+            $tableRow.append($nameCol, $stockCol, $reorderCol, $costCol, $priceCol, $buttonsCol);
             $tableHead.append($tableRow);
             $table.append($tableHead, createTable(val));
 
@@ -97,9 +98,6 @@ $(document).ready(function () {
 
     const getUserData = () => {
         $.get("/api/users/data").then((data) => {
-            console.log(`User Data:`, data)
-            // data conatins data.username and data.id
-            // Add all of the dynamic stuff you need with the user in here (including grabbing a reference to the id)
             $("#user-name").text(data.username);
             getProductData(data);
         });

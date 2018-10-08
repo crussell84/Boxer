@@ -39,7 +39,7 @@ module.exports = (app) => {
   });
 
   app.get("/products/delete/:productID", isAuthenticated, (req, res) => {
-    res.sendFile(path.join("public/html/dashboard.html"), {root: './'})
+    res.sendFile(path.join("public/html/delete.html"), {root: './'})
   });
 
   // Render 404 page for any unmatched routes

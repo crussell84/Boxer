@@ -36,22 +36,27 @@ module.exports = (app) => {
   });
 
   // Used to log the user out
-  app.get("/logout", function(req, res) {
+  app.get("/logout", (req, res) => {
     req.logout();
     res.redirect("/");
   });
 
-  // Get all examples
-  app.get("/api/products/:user", function (req, res) {
-
-    // need to get userID from front end and include that in the request to filter the table by user
-    db.Product.findAll({ where: { userID: req.params.user }, order: ["itemName"] }).then(data => {
+  // Get all products
+  app.get("/api/products/:user", (req, res) => {
+    db.Product.findAll({ where: { UserId: req.params.user }, order: ["itemName"] }).then(data => {
       res.json(data);
     });
   });
 
+  // Get a product by ID
+  app.get("/api/products/:user/:product", (req, res) => {
+    db.Product.findOne({ where: { id: req.params.product, userID: req.params.user}}).then((data) => {
+      res.json(data);
+    })
+  })
+
   // Create a new product - in this case expecting front end to pass a single object with the needed properties
-  app.post("/api/products/add", function (req, res) {
+  app.post("/api/products/add", (req, res) => {
     db.Product.create(req.body).then(data => {
       res.json(data);
     });
@@ -97,9 +102,7 @@ module.exports = (app) => {
       });
   });
 
-  app.get("/api/products/:user/lowstock", function (req, res) {
-
-    // need to get userID from front end and include that in the request to filter the table by user
+  app.get("/api/products/:user/lowstock", (req, res) => {
     db.Product.findAll({ where: { 
       userID: req.params.user,
       currentQuantity: {$lte: db.sequelize.col('reorderThreshold')}
@@ -108,9 +111,7 @@ module.exports = (app) => {
     });
   });
   
-  app.get("/api/products/:user/newest", function (req, res) {
-
-    // need to get userID from front end and include that in the request to filter the table by user
+  app.get("/api/products/:user/newest", (req, res) => {
     db.Product.findAll({ where: { 
       userID: req.params.user
     }, order: db.sequelize.col('createdAt'), limit: 3 }).then(data => {
