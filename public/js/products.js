@@ -14,10 +14,10 @@ $(document).ready(function () {
                 const $buttonsCol = $("<td>");
 
                 // Button elements
-                const $editButton = $("<a>");
-                const $editIcon = $("<i>");
-                const $deleteButton = $("<a>");
-                const $deleteIcon = $("<i>");
+                const $editButton = $("<a>").addClass("btn-floating orange btnForm");;
+                const $editIcon = $("<i>").addClass("material-icons").text("border_color");;
+                const $deleteButton = $("<a>").addClass("btn-floating red btnForm");;
+                const $deleteIcon = $("<i>").addClass("material-icons").text("delete");
 
                 // Creating table with data                
                 $nameCol.text(product.itemName);
@@ -28,21 +28,19 @@ $(document).ready(function () {
 
                 // Creating edit button                
                 const editLink = `/products/edit/${product.id}`;
-                $editButton.attr("href", editLink).addClass("btn-floating orange btnForm");                
-                $editIcon.addClass("material-icons").text("border_color");
+                $editButton.attr("href", editLink);
                 $editButton.append($editIcon);
 
                 // Creating delete button
                 const deleteLink = `/products/delete/${product.id}`;
-                $deleteButton.attr("href", deleteLink).addClass("btn-floating red btnForm");
-                $deleteIcon.addClass("material-icons").text("delete");
+                $deleteButton.attr("href", deleteLink);
                 $deleteButton.append($deleteIcon);
                 
                 $buttonsCol.append($editButton, $deleteButton);
 
                 $tableRow.append($nameCol, $categoryCol, $stockCol, $reorderCol, $priceCol, $buttonsCol);
                 $tableBody.append($tableRow);
-            })
+            });
         });
     }
 
