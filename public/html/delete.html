@@ -18,6 +18,26 @@
 </head>
 
 <body>
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <p class="center">You successfully deleted <span class="modalItemName"></span> from your inventory</p>
+        </div>
+
+        <div class="row">
+            <div class="col s4">
+                <p class="center"><a href="/products" class="waves-effect waves-blue btn-flat center">Products</a></p>
+            </div>
+
+            <div class="col s4">
+                <p class="center"><a href="/dashboard" class="waves-effect waves-blue btn-flat center">Dashboard</a></p>
+            </div>
+
+            <div class="col s4">
+                <p class="center"><a href="/categories" class="waves-effect waves-blue btn-flat center">Categories</a></p>
+            </div>
+        </div>         
+    </div>
+
     <header>
         <nav class="indigo darken-3">
             <div class="nav-wrapper">
@@ -57,7 +77,7 @@
 
             <li>
                 <a href="/dashboard" class="waves-effect waves-blue">
-                    <i class="material-icons white-text">dvr</i>
+                    <i class="material-icons">dvr</i>
                     <span>Dashboard</span>
                 </a>
             </li>
@@ -70,7 +90,7 @@
             </li>
 
             <li>
-                <a class="blue white-text darken-3 waves-effect waves-blue">
+                <a href="/categories" class="waves-effect waves-blue">
                     <i class="material-icons">view_list</i>
                     Categories
                 </a>
@@ -153,5 +173,5 @@
 </body>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.js"></script>
 <script type="text/javascript" src="/js/delete.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

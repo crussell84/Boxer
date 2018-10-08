@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    $('div.modal').modal({
+        dismissible: false
+      });
+
     const $deleteForm = $("form.deleteForm");
 
     const getProductData = (userData) => {
@@ -54,7 +58,8 @@ $(document).ready(function () {
                 url: `/api/products/${productID}`,
                 type: 'DELETE',
                 success: (result) => {
-                    console.log(result);
+                    $('span.modalItemName').text(itemName)
+                    $('div.modal').modal("open");                    
                 }
             });
             // $.delete(`/api/products/${productID}`).then(() => {
