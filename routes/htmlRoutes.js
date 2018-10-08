@@ -35,7 +35,7 @@ module.exports = (app) => {
 
   // Edit products, Still working on
   app.get("/products/edit/:productID", isAuthenticated, (req, res) => {
-    res.sendFile(path.join("public/html/dashboard.html"), {root: './'})
+    res.sendFile(path.join("public/html/edit.html"), {root: './'})
   });
 
   app.get("/products/delete/:productID", isAuthenticated, (req, res) => {

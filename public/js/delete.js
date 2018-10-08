@@ -31,9 +31,10 @@ $(document).ready(function () {
 
             $tableRow.append($nameCol, $categoryCol, $stockCol, $reorderCol, $costCol, $priceCol);
             $tableBody.append($tableRow);
-        });
 
-        $inputFeild.removeAttr("disabled value");
+            $inputFeild.removeAttr("disabled value");
+            $("button.deleteButton").removeClass("disabled");
+        });
     }
 
     const getUserData = () => {
@@ -62,9 +63,6 @@ $(document).ready(function () {
                     $('div.modal').modal("open");                    
                 }
             });
-            // $.delete(`/api/products/${productID}`).then(() => {
-            //     console.log(window)
-            // })
         }
     });
 
