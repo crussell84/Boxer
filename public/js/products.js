@@ -1,7 +1,6 @@
 $(document).ready(function () {
     const getProductData = (userData) => {
         $.get(`/api/products/${userData.id}`).then((data) => {
-            console.log(`Products Data:`, data);
             data.forEach((product) => {
                 // Table elements
                 const $tableBody = $("tbody.productsTBody")
@@ -52,15 +51,13 @@ $(document).ready(function () {
             getProductData(data);
         });
     }
-    
-    getUserData();
 
     const newProductForm = $("form.newProduct");
     const itemName       = $("input#item-name");
     const itemCategory   = $("input#item-category");
     const unitStock      = $("input#unit-stock");
     const unitPar        = $("input#unit-par");
-    const unitCost      = $("input#unit-cost");
+    const unitCost       = $("input#unit-cost");
     const unitPrice      = $("input#unit-price");
     
 
@@ -89,7 +86,9 @@ $(document).ready(function () {
                 console.log("Error:", err);
             });           
         });        
-    }
+    }    
+    
+    getUserData();
 
     newProductForm.on("submit", (event) => {
         event.preventDefault();
@@ -103,14 +102,11 @@ $(document).ready(function () {
            price: unitPrice.val().trim(), 
        }
 
-       if(!productData.name || !productData.category || !productData.stock || !productData.par || !productCost.par|| !productData.price) {
+       if(!productData.name || !productData.category || !productData.stock || !productData.par || !productData.cost || !productData.price) {
            return
        }
 
        addProduct(productData);
        resetForm();
-    })
-
-
-    
+    });    
 });
