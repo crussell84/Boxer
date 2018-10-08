@@ -48,13 +48,6 @@ module.exports = (app) => {
     });
   });
 
-  // Get a product by ID
-  app.get("/api/products/:user/:product", (req, res) => {
-    db.Product.findOne({ where: { id: req.params.product, userID: req.params.user}}).then((data) => {
-      res.json(data);
-    })
-  })
-
   // Create a new product - in this case expecting front end to pass a single object with the needed properties
   app.post("/api/products/add", (req, res) => {
     db.Product.create(req.body).then(data => {
@@ -70,12 +63,12 @@ module.exports = (app) => {
   });
 
   // Update a product - again, expecting a single object with properties from the front end
-  app.put("/api/products", function (req, res) {
+  app.put("/api/products/:id", function (req, res) {
     db.Product.update(
       req.body,
       {
         where: {
-          id: req.body.id
+          id: req.params.id
         }
       }).then(data => {
         res.json(data);
@@ -118,4 +111,11 @@ module.exports = (app) => {
       res.json(data);
     });
   });
+
+  // Get a product by ID
+  app.get("/api/products/:user/:product", (req, res) => {
+    db.Product.findOne({ where: { id: req.params.product, userID: req.params.user}}).then((data) => {
+      res.json(data);
+    })
+  })
 };
