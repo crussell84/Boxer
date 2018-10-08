@@ -10,6 +10,7 @@ $(document).ready(function () {
                 const $categoryCol = $("<td>");
                 const $stockCol = $("<td>");
                 const $reorderCol = $("<td>");
+                const $costCol = $("<td>");
                 const $priceCol = $("<td>");
                 const $buttonsCol = $("<td>");
 
@@ -24,6 +25,7 @@ $(document).ready(function () {
                 $categoryCol.text(product.category);
                 $stockCol.text(product.currentQuantity);
                 $reorderCol.text(product.reorderThreshold);
+                $costCol.text(product.costToGet);
                 $priceCol.text(product.sellPrice);
 
                 // Creating edit button                
@@ -38,7 +40,7 @@ $(document).ready(function () {
                 
                 $buttonsCol.append($editButton, $deleteButton);
 
-                $tableRow.append($nameCol, $categoryCol, $stockCol, $reorderCol, $priceCol, $buttonsCol);
+                $tableRow.append($nameCol, $categoryCol, $stockCol, $reorderCol, $costCol, $priceCol, $buttonsCol);
                 $tableBody.append($tableRow);
             });
         });
@@ -58,6 +60,7 @@ $(document).ready(function () {
     const itemCategory   = $("input#item-category");
     const unitStock      = $("input#unit-stock");
     const unitPar        = $("input#unit-par");
+    const unitCost      = $("input#unit-cost");
     const unitPrice      = $("input#unit-price");
     
 
@@ -66,6 +69,7 @@ $(document).ready(function () {
         itemCategory.val("");
         unitStock.val("");
         unitPar.val("");
+        unitCost.val("");
         unitPrice.val("");
     }
 
@@ -77,7 +81,7 @@ $(document).ready(function () {
                 currentQuantity: productData.stock,
                 reorderThreshold: productData.par,
                 sellPrice: productData.price,
-                costToGet: 0,
+                costToGet: productData.cost,
                 UserId: data.id
             }).then(() => {
                 window.location.reload();
@@ -95,10 +99,11 @@ $(document).ready(function () {
            category: itemCategory.val().trim(),
            stock: unitStock.val().trim(),
            par: unitPar.val().trim(),
+           cost: unitCost.val().trim(),
            price: unitPrice.val().trim(), 
        }
 
-       if(!productData.name || !productData.category || !productData.stock || !productData.par || !productData.price) {
+       if(!productData.name || !productData.category || !productData.stock || !productData.par || !productCost.par|| !productData.price) {
            return
        }
 
